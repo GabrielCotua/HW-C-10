@@ -72,7 +72,7 @@ void Person_Fill( PersonNode *people)
         printf("Error: Nodo de persona no inicializado\n");
         return;
     }
-
+    // Ai was used to generate the names, last names and SSNs.
     const char Names[ARRSIZE][ARRSIZE] = {
         "John", "Jane", "Alice", "Bob", "Charlie",
         "David", "Eve", "Jocabed", "Gabriel", "Heidi",
