@@ -29,6 +29,7 @@ void Person_Fill(PersonNode * person);
 void PersonNode_Print(PersonNode *head);
 
 int main(void) {
+    printf("\n\n|#####################|\n|HW #10, Gabriel Cotua|\n|#####################|\n\n");
     srand(time(NULL));
     PersonNode *root = NULL;
     
