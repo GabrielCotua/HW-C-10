@@ -1,4 +1,5 @@
 // HW10 : Gabriel Cotua
+// I know might not be the best use of Linked Lists but I wanted to try it out.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,6 +30,7 @@ void Person_Fill(PersonNode * person);
 void PersonNode_Print(PersonNode *head);
 
 int main(void) {
+    printf("\n\n|#####################|\n|HW #10, Gabriel Cotua|\n|#####################|\n\n");
     srand(time(NULL));
     PersonNode *root = NULL;
     
@@ -46,15 +48,15 @@ int main(void) {
     return 0;
 }
 
-void Add_Node(PersonNode ** root) {
+void Add_Node(PersonNode ** root) { // New node to the list
     PersonNode * newNode = (PersonNode *)malloc(sizeof(PersonNode));
-    if (newNode == NULL) {
+    if (newNode == NULL) { // Check if memory allocation was successful, aka there was enough memory to take from
         printf("Memory allocation failed\n");
         free(newNode);
         exit(1);
     }
     newNode->Person = (Person *)malloc(sizeof(Person));
-    if (newNode->Person == NULL) {
+    if (newNode->Person == NULL) { // same for the Person struct
         printf("Memory allocation for Person failed\n");
         free(newNode);
         exit(2);
@@ -89,8 +91,8 @@ void Person_Fill( PersonNode *people)
         888990011, 999001122, 101112131, 121314151, 131415161,
         171819202, 202122232, 232425262, 262728293, 29293031
     };
-        strcpy(people->Person->name.first, Names[rand() % ARRSIZE]);
-        strcpy(people->Person->name.last, LastNames[rand() % ARRSIZE]);
+        strcpy(people->Person->name.first, Names[rand() % ARRSIZE]); // assign a random name from the array to Person
+        strcpy(people->Person->name.last, LastNames[rand() % ARRSIZE]); // assign a random last name from the array to Person
         people->Person->SSN = SSNs[rand() % ARRSIZE];
         //printf("done\n");
 }
@@ -98,8 +100,22 @@ void Person_Fill( PersonNode *people)
 void PersonNode_Print(PersonNode *head) {
     //printf("Printing List:\n");
     PersonNode* curr;
-    for ( curr = head; curr != NULL; curr = curr->Next) { 
+    for ( curr = head; curr != NULL; curr = curr->Next) { // Gouing through the Linked List, good to note that instead of being in a int count, is more similar to what python does with {for x in ""}
         printf("%d -- %s, %s\n", curr->Person->SSN, curr->Person->name.last, curr->Person->name.first);
     }
 }
 
+/*
+Spected output:
+
+|#####################|
+|HW #10, Gabriel Cotua|
+|#####################|
+
+29293031 -- Moore, Victor
+777889900 -- Harris, Judy
+29293031 -- Saldivar, Jane
+666778899 -- Angular, Alejandro
+111223344 -- Angular, Grabrielle
+
+ */
